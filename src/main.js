@@ -17,8 +17,8 @@ app.use(helmet());
 app.post("/render-html-pdf", async (req, res) => {
   res.setHeader("Content-Type", "application/pdf");
   res.setHeader("Transfer-Encoding", "chunked");
-  const { html } = req.body;
-  const { stream, recycle } = await renderAsPDFStream(html);
+  const { html, pdfOptions } = req.body;
+  const { stream, recycle } = await renderAsPDFStream(html, pdfOptions);
   stream.pipe(res);
   stream.on("error", async () => {
     res.end();
@@ -27,6 +27,5 @@ app.post("/render-html-pdf", async (req, res) => {
   stream.addListener("end", async () => await recycle());
 });
 
-app.listen(port, () => {
-  console.log(`[http] listening on http://127.0.0.1:${port}`);
-});
+
+app.listen(port, () => console.log(`[http] listening on http://127.0.0.1:${port}`));
