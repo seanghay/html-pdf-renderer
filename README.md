@@ -40,3 +40,16 @@ curl --request POST \
 ```
 
 The response will be a PDF stream.
+
+### PDF Options
+
+See: [docs](https://pptr.dev/#?product=Puppeteer&version=v14.4.0&show=api-pagecreatepdfstreamoptions)
+
+```jsonc
+{
+  "html": "...",
+  "pdfOptions": {
+    "format": "A1"
+  }
+}
+```
