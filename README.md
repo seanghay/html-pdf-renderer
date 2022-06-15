@@ -32,7 +32,7 @@ npm install && npm start
 
 ```sh
 curl --request POST \
-  --url https://html-renderer.floo.app/render-html-pdf \
+  --url http://localhost:8080/render-html-pdf \
   --header 'Content-Type: application/json' \
   --data '{
 	  "html": "<h2 style=\"color: red;font-family: sans-serif\">hello, world</h2>"
